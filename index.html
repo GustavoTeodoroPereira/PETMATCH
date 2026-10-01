@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetMatch - Plataforma de Adoção de Pets</title>
+  <meta name="description" content="Plataforma de adoção de cães e gatos. Encontre seu novo melhor amigo e transforme uma vida!">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO FIXO -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="logo-link" aria-label="Página inicial do PetMatch">
+        <!-- SVG Logo Placeholder -->
+        <div class="logo-box">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.5 2 1.83.287 4-1.22 4-2.828z"/>
+            <path d="M14 5.172C14 3.782 15.577 2.679 17.5 3c2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.5 2-1.83.287-4-1.22-4-2.828z"/>
+            <path d="M12 14c-3.5 0-6 2.5-6 5.5 0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5 0-3-2.5-5.5-6-5.5z"/>
+          </svg>
+          <span class="logo-text">[PetMatch]</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link">Início</a></li>
+          <li><a href="#galeria" class="nav-link">Quero Adotar</a></li>
+          <li><a href="#apoio" class="nav-link">Como Ajudar</a></li>
+          <li><a href="#institucional" class="nav-link">Sobre Nós</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Alternador Dark Mode -->
+        <button id="theme-toggle" class="btn-icon" aria-label="Alternar entre modo claro e escuro" type="button">
+          <!-- Ícone Sol -->
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Ícone Lua -->
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- CTA Rápido -->
+        <a href="#galeria" class="btn btn-primary btn-cta-header">Adotar</a>
+
+        <!-- Botão Menu Mobile -->
+        <button id="menu-toggle" class="btn-icon mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- SEÇÃO HERO -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-text">
+          <h1 class="hero-title">Encontre seu novo melhor amigo</h1>
+          <p class="hero-subtitle">Adote um cão ou gato resgatado e transforme duas vidas: a dele e a sua.</p>
+          <div class="hero-buttons">
+            <a href="#galeria" class="btn btn-primary">Quero Adotar</a>
+            <a href="#apoio" class="btn btn-secondary">Quero Ajudar</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80" alt="Cão e gato amigáveis juntos" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO GALERIA E FILTROS -->
+    <section id="galeria" class="galeria-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Pets Disponíveis para Adoção</h2>
+          <p>Utilize os filtros abaixo para encontrar o companheiro ideal para seu lar.</p>
+        </div>
+
+        <!-- Barra de Filtros -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="filter-especie">Espécie</label>
+            <select id="filter-especie" class="filter-select">
+              <option value="todos">Todas as Espécies</option>
+              <option value="cachorro">Cachorro</option>
+              <option value="gato">Gato</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-porte">Porte</label>
+            <select id="filter-porte" class="filter-select">
+              <option value="todos">Todos os Portes</option>
+              <option value="pequeno">Pequeno</option>
+              <option value="médio">Médio</option>
+              <option value="grande">Grande</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-idade">Idade</label>
+            <select id="filter-idade" class="filter-select">
+              <option value="todos">Todas as Idades</option>
+              <option value="filhote">Filhote</option>
+              <option value="adulto">Adulto</option>
+              <option value="sênior">Sênior</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Grid de Pets -->
+        <div id="pets-grid" class="pets-grid" aria-live="polite">
+          <!-- Inserido dinamicamente via JS -->
+        </div>
+        
+        <!-- Mensagem de NENHUM PET ENCONTRADO -->
+        <div id="no-pets-message" class="no-pets-message hidden">
+          <p>Nenhum pet encontrado com os filtros selecionados. Tente ajustar suas opções!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE APOIO -->
+    <section id="apoio" class="apoio-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Como Ajudar a PetMatch</h2>
+          <p>Mesmo que você não possa adotar agora, existem muitas formas de transformar a vida dos nossos resgatados.</p>
+        </div>
+
+        <div class="apoio-grid">
+          <!-- Card Ração -->
+          <div class="apoio-card">
+            <div class="apoio-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Doação de Ração</h3>
+            <p>Aceitamos doações de ração seca e úmida para cães e gatos. Entregue em nossos pontos de coleta cadastrados.</p>
+            <p class="placeholder-info"><strong>[Ponto de Coleta Principal: Rua dos Pets, 123 - Centro]</strong></p>
+          </div>
+
+          <!-- Card PIX -->
+          <div class="apoio-card">
+            <div class="apoio-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+            </div>
+            <h3>Contribuição via PIX</h3>
+            <p>Ajude a custear consultas médicas, vacinas e castrações dos animais resgatados com qualquer valor.</p>
+            <div class="pix-box">
+              <span>Chave PIX (CNPJ):</span>
+              <code>[chave pix da ONG: 00.000.000/0001-00]</code>
+            </div>
+          </div>
+
+          <!-- Card Voluntariado -->
+          <div class="apoio-card">
+            <div class="apoio-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Seja Voluntário</h3>
+            <p>Doe seu tempo para feiras de adoção, passeio com os pets ou apoio administrativo.</p>
+            <a href="#contato" class="btn btn-secondary btn-sm">Quero me Cadastrar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO INSTITUCIONAL -->
+    <section id="institucional" class="institucional-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nosso Impacto e Histórias</h2>
+        </div>
+
+        <div class="impacto-text-box">
+          <p class="placeholder-info">[Texto sobre o impacto da ONG: Desde nossa fundação em 2020, a PetMatch já resgatou, tratou e encontrou lares amorosos para mais de 450 animais. Trabalhamos em parceria com protetores independentes e clínicas veterinárias locais para garantir que cada pet receba todo o suporte antes da adoção responsável.]</p>
+        </div>
+
+        <h3 class="subheading-depoimentos">Depoimentos de Adoção</h3>
+
+        <div class="depoimentos-grid">
+          <div class="depoimento-card">
+            <div class="depoimento-header">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Maria Silva com seu pet Thor" class="depoimento-avatar">
+              <div>
+                <h4 class="depoimento-nome">Maria Silva</h4>
+                <span class="depoimento-pet">Adotou o Thor (Cão)</span>
+              </div>
+            </div>
+            <p class="depoimento-texto">"Adotar o Thor pela PetMatch foi a melhor decisão da minha vida! O processo foi super transparente e o suporte oferecido pela equipe me deu total segurança."</p>
+          </div>
+
+          <div class="depoimento-card">
+            <div class="depoimento-header">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="João Santos com sua gata Luna" class="depoimento-avatar">
+              <div>
+                <h4 class="depoimento-nome">João Santos</h4>
+                <span class="depoimento-pet">Adotou a Luna (Gata)</span>
+              </div>
+            </div>
+            <p class="depoimento-texto">"A Luna trouxe uma alegria sem tamanho para o meu apartamento. Sou extremamente grato à PetMatch por conectar nossos caminhos com tanto amor."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE CONTATO / RODAPÉ -->
+    <footer id="contato" class="footer-section">
+      <div class="container footer-container">
+        <!-- Coluna 1: Dados Institucionais -->
+        <div class="footer-col">
+          <h3>[PetMatch]</h3>
+          <p>Transformando vidas através da adoção responsável de cães e gatos.</p>
+          
+          <div class="footer-info">
+            <p><strong>Endereço:</strong> [Rua dos Pets, 123 - Bairro Esperança, Cidade/UF]</p>
+            <p><strong>CNPJ:</strong> [00.000.000/0001-00]</p>
+            <p><strong>E-mail:</strong> [contato@petmatch.org.br]</p>
+          </div>
+
+          <!-- Redes Sociais Placeholder -->
+          <div class="social-links">
+            <a href="#" aria-label="Facebook da ONG PetMatch" class="social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram da ONG PetMatch" class="social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="WhatsApp da ONG PetMatch" class="social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Formulário de Contato -->
+        <div class="footer-col">
+          <h3>Fale Conosco</h3>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="contact-nome">Nome Completo</label>
+              <input type="text" id="contact-nome" name="nome" class="form-input" required>
+              <span class="error-msg" id="error-nome">Por favor, informe seu nome.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">E-mail</label>
+              <input type="email" id="contact-email" name="email" class="form-input" required>
+              <span class="error-msg" id="error-email">Por favor, informe um e-mail válido.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-mensagem">Mensagem</label>
+              <textarea id="contact-mensagem" name="mensagem" rows="4" class="form-input" required></textarea>
+              <span class="error-msg" id="error-mensagem">Por favor, digite sua mensagem.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            <div id="form-feedback" class="form-feedback hidden" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 PetMatch. Todos os direitos reservados. [Projeto de Exemplo ONG]</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- MODAL DE DETALHES DO PET -->
+  <div id="pet-modal" class="modal-overlay hidden" aria-hidden="true" role="dialog" aria-labelledby="modal-pet-name">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close-btn" aria-label="Fechar modal" type="button">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-img-wrapper">
+          <div id="modal-pet-img" class="img-placeholder modal-img" role="img"></div>
+        </div>
+        <div class="modal-info">
+          <h3 id="modal-pet-name">Nome do Pet</h3>
+          <div class="modal-badges">
+            <span id="modal-pet-especie" class="badge">Espécie</span>
+            <span id="modal-pet-porte" class="badge">Porte</span>
+            <span id="modal-pet-idade" class="badge">Idade</span>
+          </div>
+          <p id="modal-pet-historia" class="modal-historia">História do pet aqui...</p>
+          <div class="modal-actions">
+            <button class="btn btn-primary btn-block" onclick="alert('Obrigado pelo interesse! Entraremos em contato para o processo de adoção.')">Quero Adotar Este Pet</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

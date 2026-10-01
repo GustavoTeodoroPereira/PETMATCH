@@ -1,0 +1,756 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE DESIGN E TEMAS (MODO CLARO E ESCURO)
+   ========================================================================== */
+:root {
+  /* Paleta Modo Claro */
+  --bg-primary: #fdfbf7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f2ede4;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6578;
+  --border-color: #e2d8ce;
+  
+  /* Cores de Marca (Pet & Natureza) */
+  --primary-color: #2e7d32;     /* Verde Acolhedor */
+  --primary-hover: #1b5e20;
+  --secondary-color: #e65100;   /* Laranja Quente */
+  --secondary-hover: #bf360c;
+  --accent-color: #8d6e63;      /* Tom Terroso/Marrom */
+
+  /* Utilitários */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition-normal: all 0.3s ease;
+}
+
+/* Modo Escuro Override */
+body.dark-theme {
+  --bg-primary: #121814;
+  --bg-secondary: #1e2620;
+  --bg-tertiary: #27322a;
+  --text-primary: #f0f4f1;
+  --text-secondary: #a3b8a8;
+  --border-color: #344438;
+  
+  --primary-color: #4caf50;
+  --primary-hover: #66bb6a;
+  --secondary-color: #ff9800;
+  --secondary-hover: #ffb74d;
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* ==========================================================================
+   2. RESET E ESTILOS BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==========================================================================
+   3. ELEMENTOS DE INTERFACE E BOTÕES
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-normal);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff !important;
+}
+
+.btn-primary:hover, .btn-primary:focus-visible {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: #ffffff !important;
+}
+
+.btn-secondary:hover, .btn-secondary:focus-visible {
+  background-color: var(--secondary-hover);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition-normal);
+}
+
+.btn-icon:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Placeholders para Mídias */
+.img-placeholder {
+  background-color: var(--bg-tertiary);
+  border: 2px dashed var(--border-color);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-radius: var(--radius-md);
+}
+
+.placeholder-info {
+  font-size: 0.9rem;
+  font-style: italic;
+  background: var(--bg-tertiary);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--primary-color);
+}
+
+/* ==========================================================================
+   4. CABEÇALHO (HEADER)
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: var(--transition-normal);
+}
+
+.nav-link:hover, .nav-link:focus-visible {
+  color: var(--primary-color);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sun-icon { display: none; }
+.moon-icon { display: block; }
+
+body.dark-theme .sun-icon { display: block; }
+body.dark-theme .moon-icon { display: none; }
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* ==========================================================================
+   5. SEÇÃO HERO
+   ========================================================================== */
+.hero-section {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-img {
+  height: 350px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   6. SEÇÃO GALERIA E FILTROS
+   ========================================================================== */
+.galeria-section, .apoio-section, .institucional-section {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.filter-select {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+}
+
+.filter-select:focus-visible {
+  border-color: var(--primary-color);
+}
+
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card de Pet */
+.pet-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pet-card-img {
+  height: 200px;
+  width: 100%;
+  border-radius: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pet-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pet-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.pet-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.pet-card-btn {
+  margin-top: auto;
+}
+
+.no-pets-message {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   7. SEÇÕES DE APOIO E INSTITUCIONAL
+   ========================================================================== */
+.apoio-section {
+  background-color: var(--bg-secondary);
+}
+
+.apoio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.apoio-card {
+  background-color: var(--bg-primary);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.apoio-icon {
+  color: var(--primary-color);
+}
+
+.pix-box {
+  background-color: var(--bg-tertiary);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  word-break: break-all;
+  font-size: 0.875rem;
+}
+
+.impacto-text-box {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.subheading-depoimentos {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.depoimento-card {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.depoimento-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.depoimento-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 0.6rem;
+}
+
+.depoimento-nome {
+  font-size: 1rem;
+}
+
+.depoimento-pet {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   8. RODAPÉ E FORMULÁRIO DE CONTATO
+   ========================================================================== */
+.footer-section {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding-top: 60px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-btn {
+  background-color: var(--bg-tertiary);
+  padding: 0.6rem;
+  border-radius: 50%;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-normal);
+}
+
+.social-btn:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form-input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.form-input:focus-visible {
+  outline: 2px solid var(--primary-color);
+}
+
+.error-msg {
+  color: #d32f2f;
+  font-size: 0.75rem;
+  display: none;
+}
+
+.form-group.invalid .error-msg {
+  display: block;
+}
+
+.form-group.invalid .form-input {
+  border-color: #d32f2f;
+}
+
+.form-feedback {
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-feedback.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   9. MODAL
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  max-width: 650px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--bg-tertiary);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-img {
+  height: 100%;
+  min-height: 250px;
+  border-radius: 0;
+}
+
+.modal-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modal-historia {
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   10. UTILITÁRIOS E RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+.hidden {
+  display: none !important;
+}
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+  .pets-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet Médio (768px) */
+@media (max-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .pets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .apoio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .depoimentos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  /* Menu Mobile */
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: var(--bg-secondary);
+    transition: left 0.3s ease;
+    padding: 2rem;
+  }
+
+  .nav-menu.open {
+    left: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .btn-cta-header {
+    display: none;
+  }
+}
+
+/* Mobile Pequeno (480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .pets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+}
